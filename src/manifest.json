@@ -3,7 +3,7 @@
     "name": "Fluffblocker",
     "short_name": "Fluffblocker",
     "version": "0.0.0.7",
-    "description": "Replace Facebook trending topics with New York Times headlines.",
+    "description": "Replace Facebook trending topics with news headlines.",
     "background": {
         "scripts": ["background.js"]
     },
