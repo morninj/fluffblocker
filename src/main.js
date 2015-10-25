@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     // Replace trending headlines
     var numRecursions = 0;
-    var maxRecursions = 100;
+    var maxRecursions = 500;
     function updateHeadlines(output) {
         if ($('._5myl li').length) {
             if ($('._5myl').html().length > 500) {
@@ -48,13 +48,13 @@ $(document).ready(function() {
             } else {
                 numRecursions++;
                 if (numRecursions < maxRecursions) {
-                    setTimeout(function() { updateHeadlines(); }, 250);
+                    setTimeout(function() { updateHeadlines(); }, 50);
                 }
             }
         } else {
             numRecursions++;
             if (numRecursions < maxRecursions) {
-                setTimeout(function() { updateHeadlines(); }, 250);
+                setTimeout(function() { updateHeadlines(); }, 50);
             }
         }
     }
