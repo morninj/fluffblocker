@@ -29,6 +29,7 @@ $(document).ready(function() {
                     output += '</li>';
                     console.log('output generated');
                 }
+                output += '<p style="margin-left: 21px; color: #aaa; font-style: italic;">Headlines by <a style="font-weight: bold;" href="http://fluffblocker.com">Fluffblocker</a></p>';
                 console.log(output);
                 updateHeadlines(output);
             }
