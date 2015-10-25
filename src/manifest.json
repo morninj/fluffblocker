@@ -2,12 +2,13 @@
     "manifest_version": 2,
     "name": "Fluffblocker",
     "short_name": "Fluffblocker",
-    "version": "0.0.0.6",
+    "version": "0.0.0.7",
     "description": "Replace Facebook trending topics with New York Times headlines.",
     "background": {
         "scripts": ["background.js"]
     },
     "permissions": [
+        "storage",
         "http://*/*", 
         "https://*/*"
     ],
@@ -19,6 +20,7 @@
     "content_scripts": [{
         "js": [
             "jquery-2.1.4.min.js",
+            "settings.js",
             "main.js"
         ],
         "css": ["style.css"],
