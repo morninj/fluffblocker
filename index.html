@@ -22,8 +22,7 @@
         
         <p class="blurb">Replace Facebook trending topics with New York Times headlines.</p>
 
-        <p class="add-button-container"><a onclick="chrome.webstore.install()" href="javascript:void(0);" class="add-button">Add to Google Chrome</a></p>
-
+        <p class="add-button-container"><a href="javascript:void(0);" class="install-button add-button">Add to Google Chrome</a></p>
 
         <p class="comparison-container"><img src="images/comparison.png" width="830" height="328" alt="Facebook trending topics vs. New York Times headlines"></p>
 
@@ -51,5 +50,20 @@
         
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+        <script>
+        $(document).ready(function() {
+            $('.install-button').click(function() {
+                $(this).blur();
+                if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+                    // User is using Chrome; trigger inline installation
+                    chrome.webstore.install();
+                } else {
+                    alert('You must be using Google Chrome to use Fluffblocker.');
+                }
+            });
+        });
+        </script>
+        
     </body>
 </html>
