@@ -66,5 +66,3 @@ var debug = false;
 function debugMsg(msg) {
     if (debug) { console.log(msg); }
 }
-
-// TODO noun project icon credit
