@@ -1,0 +1,11 @@
+body {
+    font-family: 'PT Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+h1 {
+    background: url('logo.png');
+    height: 34px;
+    width: 386px;
+}
+
+    h1 span { display: none; }
