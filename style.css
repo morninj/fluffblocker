@@ -29,6 +29,14 @@ p.blurb {
     text-align: center;
 }
 
+p.secondary-blurb {
+    color: #777;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 50px auto;
+    text-align: center;
+}
+
 .add-button-container {
     text-align: center;
 }
@@ -92,3 +100,4 @@ p.comparison-container {
 .fineprint a {
     color: #bbb;
 }
+
