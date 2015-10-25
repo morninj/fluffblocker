@@ -82,3 +82,13 @@ p.comparison-container {
 .footer {
     margin: 50px auto;
 }
+
+.fineprint {
+    color: #bbb;
+    font-size: 11px;
+    margin-bottom: 100px;
+}
+
+.fineprint a {
+    color: #bbb;
+}
