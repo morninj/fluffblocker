@@ -1,5 +1,5 @@
 // Set debug = true to allow console logging
-var debug = true;
+var debug = false;
 function debugMsg(msg) { if (debug) { console.log('[Fluffblocker] ' + msg); } }
 
 // Hide FB trending topics while we wait for NYT headlines to load
