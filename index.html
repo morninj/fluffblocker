@@ -83,7 +83,7 @@
                 $(this).blur();
                 if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
                     // User is using Chrome; trigger inline installation
-                    chrome.webstore.install('https://chrome.google.com/webstore/detail/fluffblocker/cmmoedjfbldkohgcoahichoepmkphhcg', installSuccess);
+                    chrome.webstore.install();
                 } else {
                     // User is not using Chrome; send to web store
                     window.location.href = 'https://chrome.google.com/webstore/detail/fluffblocker/cmmoedjfbldkohgcoahichoepmkphhcg';
