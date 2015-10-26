@@ -101,3 +101,53 @@ p.comparison-container {
     color: #bbb;
 }
 
+.success-modal {
+    display: none;
+    padding: 30px;
+    text-align: center;
+}
+
+    p.fb-share-container {
+        margin: 25px auto 10px auto;
+    }
+
+    .large-fb-share-button {
+            -moz-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+            box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #637aad), color-stop(1, #5972a7));
+            background:-moz-linear-gradient(top, #637aad 5%, #5972a7 100%);
+            background:-webkit-linear-gradient(top, #637aad 5%, #5972a7 100%);
+            background:-o-linear-gradient(top, #637aad 5%, #5972a7 100%);
+            background:-ms-linear-gradient(top, #637aad 5%, #5972a7 100%);
+            background:linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#637aad', endColorstr='#5972a7',GradientType=0);
+            background-color:#637aad;
+            -moz-border-radius:4px;
+            -webkit-border-radius:4px;
+            border-radius:4px;
+            border:1px solid #314179;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff !important;
+            font-family:Arial;
+            font-size:24px;
+            font-weight:bold;
+            padding:22px 36px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #000000;
+    }
+    .large-fb-share-button:hover {
+        opacity: 0.9;
+    }
+    .large-fb-share-button:active {
+            position:relative;
+            top:1px;
+    }
+        
+    .no-thanks {
+        color: #aaa !important;
+        font-size: 9px !important;
+        margin: 0;
+        padding: 0;
+    }

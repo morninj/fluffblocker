@@ -18,6 +18,7 @@
         <![endif]-->
 
         <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+        <link href="featherlight.min.css" rel="stylesheet" type="text/css">
         <link href="style.css" rel="stylesheet" type="text/css">
 
         <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/cmmoedjfbldkohgcoahichoepmkphhcg">
@@ -64,20 +65,36 @@
             Icons by <a href="https://thenounproject.com/search/?q=news&i=77083">Miguel C. Balandrano</a> and <a href="https://thenounproject.com/term/increase/141508/">ChangHoon Baek</a>.
         </p>
         
+        <div class="success-modal">
+            <h2>You're all set!</h2>
+            <p>Fluffblocker will start when you visit Facebook.</p>
+            <p>Will you take a second to tell your friends?</p>
+            <p class="fb-share-container"><a href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.fluffblocker.com%2F" target="_blank" class="large-fb-share-button">Share on Facebook</a></p>
+            <p><a href="javascript:void(0);" class"no-thanks" id="no-thanks-link" style="color: #bbb !important; font-size: 12px; text-decoration: none;">No thanks</a></p>
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="featherlight.min.js"></script>
 
+        <!-- Handle install button clicks -->
         <script>
         $(document).ready(function() {
             $('.install-button').click(function() {
                 $(this).blur();
                 if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
                     // User is using Chrome; trigger inline installation
-                    chrome.webstore.install();
+                    chrome.webstore.install(installSuccess());
                 } else {
-                    alert('You must be using Google Chrome to use Fluffblocker.');
+                    // User is not using Chrome; send to web store
+                    window.location.href = 'https://chrome.google.com/webstore/detail/fluffblocker/cmmoedjfbldkohgcoahichoepmkphhcg';
                 }
             });
+            $(document).on('click', '#no-thanks-link', function() {
+                $.featherlight.close();
+            });
+            function installSuccess() {
+                $.featherlight($('.success-modal'), {closeOnEsc: false, closeIcon: '', closeOnClick: false});
+            }
         });
         </script>
 
