@@ -2,7 +2,7 @@
 var debug = true;
 function debugMsg(msg) { if (debug) { console.log('[Fluffblocker] ' + msg); } }
 
-var source_selection = '<form id="news-source-form"><select name="news-source" id="news-source" style="margin-left: 21px; margin-bottom: 20px;"><option value="caption">Change news source...</option><option value="bbc">BBC</option><option value="guardian">Guardian</option><option value="npr">NPR</option><option value="nyt">New York Times</option><option value="wapo">Washington Post</option><option value="custom">Custom...</option></select></form>';
+var source_selection = '<form id="news-source-form"><select name="news-source" id="news-source" style="margin-left: 21px; margin-bottom: 20px;"><option value="caption">Change news source...</option><option value="bbc">BBC</option><option value="guardian">Guardian</option><option value="npr">NPR</option><option value="nyt">New York Times</option><option value="onion">Onion</option><option value="wapo">Washington Post</option><option value="custom">Custom...</option></select></form>';
 
 // Hide FB trending topics while we wait for headlines to load
 var headlineRecursions = 0;
@@ -48,6 +48,9 @@ $(document).ready(function() {
                 } else if (news_source == 'npr') {
                     feedUrl = 'http://www.npr.org/rss/rss.php?id=1001';
                     news_source_name = 'NPR';
+                } else if (news_source == 'onion') {
+                    feedUrl = 'http://www.theonion.com/feeds/rss';
+                    news_source_name = 'Onion';
                 } else if (news_source == 'wapo') {
                     feedUrl = 'http://feeds.washingtonpost.com/rss/national';
                     news_source_name = 'Washington Post';
