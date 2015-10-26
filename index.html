@@ -25,6 +25,29 @@
 
         <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="featherlight.min.js"></script>
+
+        <!-- Handle install button clicks -->
+        <script>
+        $(document).ready(function() {
+            $('.install-button').click(function() {
+                $(this).blur();
+                if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+                    // User is using Chrome; trigger inline installation
+                    chrome.webstore.install('https://chrome.google.com/webstore/detail/cmmoedjfbldkohgcoahichoepmkphhcg', function() { $.featherlight($('.success-modal'), {closeOnEsc: false, closeIcon: '', closeOnClick: false}); }, function() { console.log('Installation failed'); });
+                } else {
+                    // User is not using Chrome; send to web store
+                    window.location.href = 'https://chrome.google.com/webstore/detail/fluffblocker/cmmoedjfbldkohgcoahichoepmkphhcg';
+                }
+            });
+            $(document).on('click', '#no-thanks-link', function() {
+                $.featherlight.close();
+            });
+
+        });
+        </script>
+
     </head>
     <body>
 
@@ -73,30 +96,6 @@
             <p><a href="javascript:void(0);" class"no-thanks" id="no-thanks-link" style="color: #bbb !important; font-size: 12px; text-decoration: none;">No thanks</a></p>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="featherlight.min.js"></script>
-
-        <!-- Handle install button clicks -->
-        <script>
-        $(document).ready(function() {
-            $('.install-button').click(function() {
-                $(this).blur();
-                if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-                    // User is using Chrome; trigger inline installation
-                    chrome.webstore.install();
-                } else {
-                    // User is not using Chrome; send to web store
-                    window.location.href = 'https://chrome.google.com/webstore/detail/fluffblocker/cmmoedjfbldkohgcoahichoepmkphhcg';
-                }
-            });
-            $(document).on('click', '#no-thanks-link', function() {
-                $.featherlight.close();
-            });
-            function installSuccess() {
-                $.featherlight($('.success-modal'), {closeOnEsc: false, closeIcon: '', closeOnClick: false});
-            }
-        });
-        </script>
 
         <!-- Google Analytics -->
         <script>
