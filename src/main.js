@@ -1,5 +1,5 @@
 // Set debug = true to allow console logging
-var debug = true;
+var debug = false;
 function debugMsg(msg) { if (debug) { console.log('[Fluffblocker] ' + msg); } }
 
 var source_selection = '<form id="news-source-form"><select name="news-source" id="news-source" style="margin-left: 21px; margin-bottom: 20px;"><option value="caption">Change news source...</option><option value="bbc">BBC</option><option value="guardian">Guardian</option><option value="npr">NPR</option><option value="nyt">New York Times</option><option value="onion">Onion</option><option value="wapo">Washington Post</option><option value="custom">Custom...</option></select></form>';
