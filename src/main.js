@@ -62,7 +62,13 @@ $(document).ready(function() {
                     news_source_name = 'New York Times';
                 }
                 // Grab the RSS feed
+                /* This is the old URL for the Google Feed API; it seems that
+                 * Google has finally buried the API, so we're switching
+                 * to Yahoo!'s YQL--see 
+                 * https://developer.yahoo.com/yql/ 
                 var ajaxUrl = 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&q=' + encodeURIComponent(feedUrl);
+                */
+                var ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D'" + encodeURIComponent(feedUrl) + "'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
                 var numHeadlinesToDisplay = 10;
                 debugMsg(ajaxUrl);
                 $.ajax({
@@ -73,17 +79,21 @@ $(document).ready(function() {
                         debugMsg('Fluffblocker cannot load feed.');
                     },
                     success: function(xml) {
-                        values = xml.responseData.feed.entries;
-                        debugMsg('raw xml: ' + JSON.stringify(values));
+                        debugMsg('raw JSON: ' + JSON.stringify(xml.query.results.rss.channel.item));
+                        values = xml.query.results.rss.channel.item;
                         // Compile Facebook output
                         var output = '';
                         for (i = 0; i < numHeadlinesToDisplay; i++) {
+                            debugMsg('this item: ' + JSON.stringify(values[i]));
                             var title = ''; // TODO concatenate
                             var link = '';
                             var snippet = '';
                             title = values[i]['title'];
-                            link = values[i]['link'];
-                            snippet = values[i]['contentSnippet'];
+                            link = values[i]['link']['href'];
+                            snippet = values[i]['description'];
+                            debugMsg('raw snippet: ' + typeof(snippet) + ' | ' + snippet.toString());
+                            snippet = snippet.toString().replace(/<(?:.|\n)*?>/gm, ''); // strip HTML
+                            if (snippet.length > 150) { snippet = snippet.substring(0, 150) + '...'; } // limit snippet length
                             output += '<li class="_5my2" data-position="' + (i + 1) + '">';
                             output += '<div class="clearfix _4_nm fluffblocker"><div class="rfloat _ohf" id="u_ps_0_6_l"><button title="Hide Trending Item" aria-label="Hide Trending Item" type="submit" value="1" class="_19_3" data-reactid=".k"><span class="_1k6k" data-topicid="108640102493378" data-reactid=".k.0"></span></button></div><div class="clearfix _uhk _42ef" style="overflow: visible !important; max-height: 200px !important;"><img class="_5r-z _8o lfloat _ohe img" alt="" src="https://static.xx.fbcdn.net/rsrc.php/v2/y4/r/-PAXP-deijE.gif"><div class="_42ef"><div class="_5r--"><span class="_5v9v"></span> <a class="_4qzh _5v0t _7ge" href="' + link + '" target="_blank"><span class="_452y"></span><span class="_5v0s _5my8">' + title + '</span></a><span class="_5v9v">: ' + snippet + '</span></div></div></div></div>';
                             output += '</li>';
