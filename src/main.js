@@ -89,7 +89,7 @@ $(document).ready(function() {
                             var link = '';
                             var snippet = '';
                             title = values[i]['title'];
-                            link = values[i]['link']['href'];
+                            link = values[i]['link'];
                             snippet = values[i]['description'];
                             debugMsg('raw snippet: ' + typeof(snippet) + ' | ' + snippet.toString());
                             snippet = snippet.toString().replace(/<(?:.|\n)*?>/gm, ''); // strip HTML
