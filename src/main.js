@@ -89,7 +89,14 @@ $(document).ready(function() {
                             var link = '';
                             var snippet = '';
                             title = values[i]['title'];
-                            link = values[i]['link'];
+                            // Link appears at different levels of the JSON hierarchy
+                            if (typeof values[i]['link'] === 'object') {
+                                debugMsg('link **is** nested; type is ' + typeof(values[i]['link']) + '; contents: ' + JSON.stringify(values[i]['link']));
+                                link = values[i]['link'][0]['href'];
+                            } else {
+                                debugMsg('link is not nested; type is ' + typeof(values[i]['link']));
+                                link = values[i]['link'];
+                            }
                             snippet = values[i]['description'];
                             debugMsg('raw snippet: ' + typeof(snippet) + ' | ' + snippet.toString());
                             snippet = snippet.toString().replace(/<(?:.|\n)*?>/gm, ''); // strip HTML
