@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Fluffblocker",
     "short_name": "Fluffblocker",
-    "version": "0.0.1.2",
+    "version": "0.0.1.3",
     "description": "Replace Facebook trending topics with news headlines.",
     "background": {
         "scripts": ["background.js"]
